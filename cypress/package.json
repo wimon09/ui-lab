@@ -1,0 +1,12 @@
+{
+  "name": "ui-lab-cypress",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "cypress run --browser chrome --spec cypress/e2e/web-form.cy.js && cypress run --browser chrome --spec cypress/e2e/pizza-scenario.cy.js",
+    "test:open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "16.2.1"
+  }
+}

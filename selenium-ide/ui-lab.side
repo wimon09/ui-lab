@@ -1,0 +1,266 @@
+{
+  "id": "project-ui-lab",
+  "version": "2.0",
+  "name": "ui-lab",
+  "url": "https://www.selenium.dev/selenium/web/web-form.html",
+  "tests": [
+    {
+      "id": "test-web-form",
+      "name": "web form",
+      "commands": [
+        {
+          "id": "web-01",
+          "command": "open",
+          "target": "/selenium/web/web-form.html",
+          "value": ""
+        },
+        {
+          "id": "web-02",
+          "command": "setWindowSize",
+          "target": "1366x768",
+          "value": ""
+        },
+        {
+          "id": "web-03",
+          "command": "click",
+          "target": "id=my-text-id",
+          "value": ""
+        },
+        {
+          "id": "web-04",
+          "command": "type",
+          "target": "id=my-text-id",
+          "value": "Hello Selenium"
+        },
+        {
+          "id": "web-05",
+          "command": "select",
+          "target": "name=my-select",
+          "value": "label=Two"
+        },
+        {
+          "id": "web-06",
+          "command": "click",
+          "target": "xpath=//button[@type='submit']",
+          "value": ""
+        },
+        {
+          "id": "web-07",
+          "command": "waitForElementVisible",
+          "target": "id=message",
+          "value": "10000"
+        },
+        {
+          "id": "web-08",
+          "command": "assertTitle",
+          "target": "Web form - target page",
+          "value": ""
+        },
+        {
+          "id": "web-09",
+          "command": "assertText",
+          "target": "id=message",
+          "value": "Received!"
+        }
+      ]
+    },
+    {
+      "id": "test-qp01-customer",
+      "name": "QP-01 customer",
+      "commands": [
+        {
+          "id": "qp-01",
+          "command": "open",
+          "target": "https://quickpizza.grafana.com/",
+          "value": ""
+        },
+        {
+          "id": "qp-02",
+          "command": "waitForElementVisible",
+          "target": "css=h1",
+          "value": "10000"
+        },
+        {
+          "id": "qp-03",
+          "command": "assertText",
+          "target": "css=h1",
+          "value": "Looking to break out of your pizza routine?"
+        },
+        {
+          "id": "qp-04",
+          "command": "click",
+          "target": "xpath=//label[.//span[normalize-space()='Advanced']]",
+          "value": ""
+        },
+        {
+          "id": "qp-05",
+          "command": "waitForElementVisible",
+          "target": "xpath=//label[normalize-space()='Max Calories per Slice']/../input",
+          "value": "10000"
+        },
+        {
+          "id": "qp-06",
+          "command": "waitForElementVisible",
+          "target": "css=select",
+          "value": "10000"
+        },
+        {
+          "id": "qp-07",
+          "command": "waitForElementVisible",
+          "target": "id=default-checkbox",
+          "value": "10000"
+        },
+        {
+          "id": "qp-08",
+          "command": "waitForElementVisible",
+          "target": "css=input#pizza-name",
+          "value": "10000"
+        },
+        {
+          "id": "qp-09",
+          "command": "executeScript",
+          "target": "const d = new Date(); const two = (n) => String(n).padStart(2, '0'); const day = d.getFullYear() + two(d.getMonth() + 1) + two(d.getDate()); const time = two(d.getHours()) + two(d.getMinutes()) + two(d.getSeconds()); return 'Lab Pizza ' + day + '-' + time;",
+          "value": "pizzaName"
+        },
+        {
+          "id": "qp-10",
+          "command": "echo",
+          "target": "${pizzaName}",
+          "value": ""
+        },
+        {
+          "id": "qp-11",
+          "command": "type",
+          "target": "xpath=//label[normalize-space()='Max Calories per Slice']/../input",
+          "value": "600"
+        },
+        {
+          "id": "qp-12",
+          "command": "waitForElementPresent",
+          "target": "xpath=//select/option[normalize-space()='Knife']",
+          "value": "10000"
+        },
+        {
+          "id": "qp-13",
+          "command": "addSelection",
+          "target": "css=select",
+          "value": "label=Knife"
+        },
+        {
+          "id": "qp-14",
+          "command": "click",
+          "target": "id=default-checkbox",
+          "value": ""
+        },
+        {
+          "id": "qp-15",
+          "command": "type",
+          "target": "css=input#pizza-name",
+          "value": "${pizzaName}"
+        },
+        {
+          "id": "qp-16",
+          "command": "assertValue",
+          "target": "xpath=//label[normalize-space()='Max Calories per Slice']/../input",
+          "value": "600"
+        },
+        {
+          "id": "qp-17",
+          "command": "assertSelectedLabel",
+          "target": "css=select",
+          "value": "Knife"
+        },
+        {
+          "id": "qp-18",
+          "command": "assertChecked",
+          "target": "id=default-checkbox",
+          "value": ""
+        },
+        {
+          "id": "qp-19",
+          "command": "assertValue",
+          "target": "css=input#pizza-name",
+          "value": "${pizzaName}"
+        },
+        {
+          "id": "qp-20",
+          "command": "click",
+          "target": "name=pizza-please",
+          "value": ""
+        },
+        {
+          "id": "qp-21",
+          "command": "waitForElementVisible",
+          "target": "xpath=//p[starts-with(., 'Name:')]",
+          "value": "10000"
+        },
+        {
+          "id": "qp-22",
+          "command": "assertText",
+          "target": "xpath=//p[starts-with(., 'Name:')]",
+          "value": "Name: ${pizzaName}"
+        },
+        {
+          "id": "qp-23",
+          "command": "assertNotText",
+          "target": "xpath=//p[starts-with(., 'Tool:')]",
+          "value": "Tool: Knife"
+        },
+        {
+          "id": "qp-24",
+          "command": "storeText",
+          "target": "xpath=//p[starts-with(., 'Calories per slice:')]",
+          "value": "calories"
+        },
+        {
+          "id": "qp-25",
+          "command": "executeScript",
+          "target": "return parseInt(${calories}.split(':')[1]) <= 600;",
+          "value": "caloriesOk"
+        },
+        {
+          "id": "qp-26",
+          "command": "assert",
+          "target": "caloriesOk",
+          "value": "true"
+        },
+        {
+          "id": "qp-27",
+          "command": "click",
+          "target": "name=rate-5",
+          "value": ""
+        },
+        {
+          "id": "qp-28",
+          "command": "waitForElementVisible",
+          "target": "id=rate-result",
+          "value": "10000"
+        },
+        {
+          "id": "qp-29",
+          "command": "assertText",
+          "target": "id=rate-result",
+          "value": "Please log in first."
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "suite-default",
+      "name": "Default Suite",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "test-web-form",
+        "test-qp01-customer"
+      ]
+    }
+  ],
+  "urls": [
+    "https://www.selenium.dev",
+    "https://quickpizza.grafana.com"
+  ],
+  "plugins": []
+}
